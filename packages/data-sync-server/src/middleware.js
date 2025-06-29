@@ -41,7 +41,7 @@ function handleSync(syncEngine) {
             // console.log(`Sync request from device: ${payload.deviceId}`)
             // Apply changes
             const result = await syncEngine.applyChanges(payload);
-            if (req.query.debug) {
+            if (req.query.debug === 'true' || req.query.debug === '1') {
                 console.log(await syncEngine.fetchAllData());
             }
             // Return the result

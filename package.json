@@ -1,0 +1,29 @@
+{
+    "name": "data-sync-monorepo",
+    "version": "0.1.0",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "build": "turbo run build",
+        "test": "turbo run test",
+        "lint": "turbo run lint",
+        "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+        "format:check": "prettier --check \"**/*.{ts,tsx,md,json}\""
+    },
+    "devDependencies": {
+        "prettier": "^3.0.0",
+        "tsconfig-paths": "^4.2.0",
+        "turbo": "^1.10.0",
+        "typescript": "^5.0.0"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "packageManager": "yarn@4.0.0",
+    "volta": {
+        "node": "18.18.0",
+        "yarn": "4.0.0"
+    }
+}

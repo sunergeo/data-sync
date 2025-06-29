@@ -1,0 +1,39 @@
+{
+    "name": "@sunergeo/data-sync-storage-adapters",
+    "version": "0.1.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs,esm --dts",
+        "test": "vitest"
+    },
+    "files": [
+        "dist"
+    ],
+    "author": "Sunergeo",
+    "license": "MIT",
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@sunergeo/data-sync-server": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "^18.15.0",
+        "tsup": "^6.7.0",
+        "typescript": "^5.0.0",
+        "vitest": "^0.30.0"
+    },
+    "peerDependencies": {
+        "aws-sdk": "^2.1000.0",
+        "mysql2": "^3.0.0"
+    },
+    "peerDependenciesMeta": {
+        "aws-sdk": {
+            "optional": true
+        },
+        "mysql2": {
+            "optional": true
+        }
+    }
+}

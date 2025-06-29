@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # Production service
+  data-sync-server:
+    build:
+      context: .
+      dockerfile: packages/data-sync-server/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+    # Add healthcheck to ensure the container is running properly
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Development service with auto-restart on code changes
+  data-sync-server-dev:
+    build:
+      context: .
+      dockerfile: packages/data-sync-server/Dockerfile
+      target: deps # Stop at the deps stage to avoid building
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    volumes:
+      - ./packages:/app/packages
+      - ./package.json:/app/package.json
+      - ./yarn.lock:/app/yarn.lock
+      - ./turbo.json:/app/turbo.json
+    command: >
+      sh -c "corepack enable && npm install -g nodemon ts-node tsconfig-paths && 
+             cd /app && yarn install && 
+             cd packages/examples && 
+             nodemon --watch '../**/*.ts' --exec 'ts-node -r tsconfig-paths/register --project tsconfig.json src/server.ts'"
+    restart: unless-stopped

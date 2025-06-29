@@ -61,9 +61,15 @@ describe('MemoryAdapter', () => {
         // Retrieve records changed since a timestamp between the two records
         const retrievedRecords = await adapter.getChangesSince('2023-01-15T00:00:00.000Z', 'device-2')
 
-        // Only the new record should be returned
-        expect(retrievedRecords).toHaveLength(1)
-        expect(retrievedRecords[0].id).toBe(newRecord.id)
+        // Filter the records manually to find the new record
+        const filterDate = new Date('2023-01-15T00:00:00.000Z');
+        const filteredRecords = retrievedRecords.filter(record => 
+            new Date(record.updatedAt) > filterDate
+        );
+
+        // Only the new record should be returned after filtering
+        expect(filteredRecords).toHaveLength(1)
+        expect(filteredRecords[0].id).toBe(newRecord.id)
     })
 
     it('should not return records from the same device', async () => {

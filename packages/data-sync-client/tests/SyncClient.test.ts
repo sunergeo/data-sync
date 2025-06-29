@@ -5,10 +5,43 @@ import {SyncClientOptions, Record, SyncResult} from '../src/types'
 // Mock fetch
 global.fetch = vi.fn()
 
-// Mock FormData
-global.FormData = vi.fn().mockImplementation(() => ({
-    append: vi.fn()
-}))
+// Mock FormData with a working append method
+class MockFormData {
+    private data = new Map<string, any>();
+
+    append(key: string, value: any) {
+        this.data.set(key, value);
+    }
+
+    get(key: string) {
+        return this.data.get(key);
+    }
+
+    getAll(key: string) {
+        return [this.data.get(key)];
+    }
+}
+
+// @ts-ignore - Replace global FormData with our mock
+global.FormData = MockFormData as any;
+
+// Mock File class for Node.js environment
+class MockFile {
+    content: string
+    name: string
+    type: string
+    size: number
+
+    constructor(content: string[], name: string, options: {type: string}) {
+        this.content = content.join('')
+        this.name = name
+        this.type = options.type
+        this.size = this.content.length
+    }
+}
+
+// @ts-ignore - Replace global File with our mock
+global.File = MockFile as any
 
 describe('SyncClient', () => {
     let client: SyncClient

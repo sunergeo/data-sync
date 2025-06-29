@@ -32,19 +32,26 @@ export class MemoryAdapter extends BaseAdapter {
      * @returns Records changed since the timestamp
      */
     async getChangesSince(timestamp: string, deviceId: string): Promise<Record[]> {
-        // Get record IDs that have changed since the timestamp
-        const changedIds = this.changeLog
-            .filter((entry) => this.compareTimestamps(entry.timestamp, timestamp) > 0 && entry.deviceId !== deviceId)
-            .map((entry) => entry.recordId)
+        // Parse the timestamp once
+        const filterDate = new Date(timestamp);
 
-        // Get unique record IDs
-        const uniqueIds = [...new Set(changedIds)]
+        // Get records that have changed since the timestamp
+        const records = [...this.records.values()]
+            .filter(record => {
+                // Parse the record's updatedAt timestamp
+                const recordDate = new Date(record.updatedAt);
 
-        // Get records for the IDs that haven't been deleted
-        return uniqueIds
-            .filter((id) => !this.deletedRecords.has(id))
-            .map((id) => this.records.get(id))
-            .filter((record): record is Record => record !== undefined)
+                // Filter by timestamp (only include records updated after the given timestamp)
+                // and don't include records from the same device
+                return recordDate > filterDate && 
+                    !this.changeLog.some(entry => 
+                        entry.recordId === record.id && 
+                        entry.deviceId === deviceId
+                    );
+            });
+
+        // Return records that haven't been deleted
+        return records.filter(record => !this.deletedRecords.has(record.id));
     }
 
     /**
@@ -53,15 +60,13 @@ export class MemoryAdapter extends BaseAdapter {
      * @param deviceId ID of the device applying the records
      */
     async applyRecords(records: Record[], deviceId: string): Promise<void> {
-        const timestamp = this.getCurrentTimestamp()
-
         for (const record of records) {
             // Store the record
             this.records.set(record.id, record)
 
-            // Log the change
+            // Log the change using the record's updatedAt timestamp
             this.changeLog.push({
-                timestamp,
+                timestamp: record.updatedAt,
                 recordId: record.id,
                 deviceId
             })

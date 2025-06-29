@@ -12,6 +12,7 @@ node_modules/
 dist/
 build/
 .turbo/
+.idea/
 
 # Logs
 logs

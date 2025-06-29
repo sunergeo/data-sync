@@ -7,6 +7,13 @@ import {StorageAdapter, Record, AttachmentMeta} from '@sunergeo/data-sync-server
  */
 export abstract class BaseAdapter implements StorageAdapter {
     /**
+     * Retrieves all records from the data source ... primarily intended for development/testing
+     *
+     * @return {Promise<Record[]>} A promise that resolves to an array of records.
+     */
+    abstract getAllRecords(): Promise<Record[]>
+
+    /**
      * Get changes since a specific timestamp
      * @param timestamp Timestamp to get changes since
      * @param deviceId ID of the device requesting changes

@@ -34,16 +34,20 @@ export function handleSync(syncEngine: SyncEngine) {
     return async (req: Request, res: Response) => {
         try {
             const payload: SyncPayload = req.body
-            console.log('Sync request received:', payload)
+            // console.log('Sync request received:', payload)
 
             // Validate the payload
             if (!payload.deviceId) {
                 return res.status(400).json({error: 'Device ID is required'})
             }
-            console.log(`Sync request from device: ${payload.deviceId}`)
+            // console.log(`Sync request from device: ${payload.deviceId}`)
 
             // Apply changes
             const result = await syncEngine.applyChanges(payload)
+
+            if (req.query.debug === 'true' || req.query.debug === '1') {
+                console.log(await syncEngine.fetchAllData())
+            }
 
             // Return the result
             res.json(result)

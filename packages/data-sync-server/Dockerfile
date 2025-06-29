@@ -5,14 +5,14 @@ WORKDIR /app
 
 # Install dependencies only when needed
 FROM base AS deps
-COPY package.json yarn.lock turbo.json ./
+COPY package.json yarn.lock turbo.json .yarnrc.yml ./
 COPY packages/data-sync-server/package.json ./packages/data-sync-server/
 COPY packages/data-sync-client/package.json ./packages/data-sync-client/
 COPY packages/storage-adapters/package.json ./packages/storage-adapters/
 COPY packages/examples/package.json ./packages/examples/
 
 # Install dependencies
-RUN corepack enable && yarn install --frozen-lockfile
+RUN corepack enable && yarn install --immutable
 
 # Build the app
 FROM deps AS builder
@@ -37,7 +37,7 @@ COPY --from=builder /app/packages/storage-adapters/package.json ./packages/stora
 COPY --from=builder /app/packages/examples/package.json ./packages/examples/
 
 # Install production dependencies only
-RUN corepack enable && yarn install --production --frozen-lockfile
+RUN corepack enable && yarn install --production --immutable
 
 # Expose the port the server runs on
 EXPOSE 3000

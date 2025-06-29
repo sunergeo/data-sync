@@ -143,6 +143,10 @@ export class MySQLAdapter extends BaseAdapter {
         }
     }
 
+    getAllRecords(): Promise<SyncRecord[]> {
+        throw new Error('Method not implemented.')
+    }
+
     /**
      * Get changes since a specific timestamp
      * @param timestamp Timestamp to get changes since

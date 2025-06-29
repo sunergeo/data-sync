@@ -45,6 +45,11 @@ export class SyncEngine {
         return result
     }
 
+    async fetchAllData() {
+        const records = await this.storageAdapter.getAllRecords()
+        return records
+    }
+
     /**
      * Resolves conflicts between client and server records
      * @param clientRecords Records from the client

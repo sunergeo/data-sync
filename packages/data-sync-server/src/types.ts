@@ -88,6 +88,8 @@ export interface SyncEngineOptions {
  * Interface for storage adapters
  */
 export interface StorageAdapter {
+    /** Get all records - used for dev/testing */
+    getAllRecords(): Promise<Record[]>
     /** Get changes since a specific timestamp */
     getChangesSince(timestamp: string, deviceId: string): Promise<Record[]>
     /** Apply records to storage */

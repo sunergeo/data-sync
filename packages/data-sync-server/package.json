@@ -1,29 +1,30 @@
 {
-    "name": "@sunergeo/data-sync-server",
-    "version": "0.1.0",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-        "build": "tsup src/index.ts --format cjs,esm --dts",
-        "test": "vitest"
-    },
-    "files": [
-        "dist"
-    ],
-    "author": "Sunergeo",
-    "license": "MIT",
-    "publishConfig": {
-        "access": "public"
-    },
-    "dependencies": {
-        "express": "^4.18.2",
-        "multer": "^1.4.5-lts.1"
-    },
-    "devDependencies": {
-        "@types/express": "^4.17.17",
-        "@types/multer": "^1.4.7",
-        "tsup": "^6.7.0",
-        "typescript": "^5.0.0",
-        "vitest": "^0.30.0"
-    }
+  "name": "@sunergeo/data-sync-server",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "test": "vitest"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "Sunergeo",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/multer": "^1.4.7",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.0",
+    "vitest": "^0.30.0"
+  }
 }

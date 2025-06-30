@@ -346,13 +346,12 @@ __metadata:
   linkType: hard
 
 "@jridgewell/gen-mapping@npm:^0.3.2":
-  version: 0.3.8
-  resolution: "@jridgewell/gen-mapping@npm:0.3.8"
+  version: 0.3.9
+  resolution: "@jridgewell/gen-mapping@npm:0.3.9"
   dependencies:
-    "@jridgewell/set-array": "npm:^1.2.1"
-    "@jridgewell/sourcemap-codec": "npm:^1.4.10"
+    "@jridgewell/sourcemap-codec": "npm:^1.5.0"
     "@jridgewell/trace-mapping": "npm:^0.3.24"
-  checksum: c668feaf86c501d7c804904a61c23c67447b2137b813b9ce03eca82cb9d65ac7006d766c218685d76e3d72828279b6ee26c347aa1119dab23fbaf36aed51585a
+  checksum: 94d89ac50bbeacf118b3b98ce300c068e4754d2dea9abc43340a80885c94160236e322722a89aa761257f1232a91ed2da77ee6d0636c29ea94a794d2d9f9243e
   languageName: node
   linkType: hard
 
@@ -363,17 +362,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/set-array@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@jridgewell/set-array@npm:1.2.1"
-  checksum: 2a5aa7b4b5c3464c895c802d8ae3f3d2b92fcbe84ad12f8d0bfbb1f5ad006717e7577ee1fd2eac00c088abe486c7adb27976f45d2941ff6b0b92b2c3302c60f4
-  languageName: node
-  linkType: hard
-
 "@jridgewell/sourcemap-codec@npm:^1.4.10, @jridgewell/sourcemap-codec@npm:^1.4.14, @jridgewell/sourcemap-codec@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "@jridgewell/sourcemap-codec@npm:1.5.0"
-  checksum: 2eb864f276eb1096c3c11da3e9bb518f6d9fc0023c78344cdc037abadc725172c70314bdb360f2d4b7bffec7f5d657ce006816bc5d4ecb35e61b66132db00c18
+  version: 1.5.1
+  resolution: "@jridgewell/sourcemap-codec@npm:1.5.1"
+  checksum: e06b12ef3d58e988635511199da1e4f4870ea6561727b1265f3cd0e91e4b1d0efbfa12670bc83e00412da132b69ce943f292f1295246c099763646ba549cd957
   languageName: node
   linkType: hard
 
@@ -388,12 +380,12 @@ __metadata:
   linkType: hard
 
 "@jridgewell/trace-mapping@npm:^0.3.24":
-  version: 0.3.25
-  resolution: "@jridgewell/trace-mapping@npm:0.3.25"
+  version: 0.3.26
+  resolution: "@jridgewell/trace-mapping@npm:0.3.26"
   dependencies:
     "@jridgewell/resolve-uri": "npm:^3.1.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
-  checksum: 3d1ce6ebc69df9682a5a8896b414c6537e428a1d68b02fcc8363b04284a8ca0df04d0ee3013132252ab14f2527bc13bea6526a912ecb5658f0e39fd2860b4df4
+  checksum: 06cfa517ce67c40812281bcafb205adbe509e3c4a178dc733dc04542ed166e6ffbcaf7784888d6152969fed80845b8d5e17daa7b5047f6d44980edf33fb0f4da
   languageName: node
   linkType: hard
 
@@ -646,20 +638,20 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 24.0.3
-  resolution: "@types/node@npm:24.0.3"
+  version: 24.0.7
+  resolution: "@types/node@npm:24.0.7"
   dependencies:
     undici-types: "npm:~7.8.0"
-  checksum: 9c3c4e87600d1cf11e291c2fd4bfd806a615455463c30a0ef6dc9c801b3423344d9b82b8084e3ccabce485a7421ebb61a66e9676181bd7d9aea4759998a120d5
+  checksum: be3849816dafc54ec79e6be6dafcf60bdb6466beaf0081b941142d260e2b2864855210dfe5b4395c59b276468528695aefcf4f060ac95cc433b2968e80a311f9
   languageName: node
   linkType: hard
 
 "@types/node@npm:^18.15.0":
-  version: 18.19.112
-  resolution: "@types/node@npm:18.19.112"
+  version: 18.19.113
+  resolution: "@types/node@npm:18.19.113"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: e3421fb3c755337a0477014b235026d914cac8266b67de5867d778b2d4ce2ed0c8052c922e61810f2364d6b29ee24c6ea18671c5636076371b82b0d3e480fbef
+  checksum: d96a1849a9b58f24db926cac55fa6ea0bcd5dbc1d0dbd3dcf22e195ed4a47260daec32ffefd0281ee5fc03d621bc36e40cf60406b7473415d74b9db77279e7a1
   languageName: node
   linkType: hard
 
@@ -2654,11 +2646,11 @@ __metadata:
   linkType: hard
 
 "prettier@npm:^3.0.0":
-  version: 3.5.3
-  resolution: "prettier@npm:3.5.3"
+  version: 3.6.2
+  resolution: "prettier@npm:3.6.2"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 3880cb90b9dc0635819ab52ff571518c35bd7f15a6e80a2054c05dbc8a3aa6e74f135519e91197de63705bcb38388ded7e7230e2178432a1468005406238b877
+  checksum: 488cb2f2b99ec13da1e50074912870217c11edaddedeadc649b1244c749d15ba94e846423d062e2c4c9ae683e2d65f754de28889ba06e697ac4f988d44f45812
   languageName: node
   linkType: hard
 

@@ -10,7 +10,11 @@
         "test": "turbo run test",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
-        "format:check": "prettier --check \"**/*.{ts,tsx,md,json}\""
+        "format:check": "prettier --check \"**/*.{ts,tsx,md,json}\"",
+        "publish-client": "cd packages/data-sync-client && yarn npm publish --access public",
+        "publish-server": "cd packages/data-sync-server && yarn npm publish --access public",
+        "publish-storage-adapters": "cd packages/storage-adapters && yarn npm publish --access public",
+        "publish-all": "yarn build && yarn test && yarn publish-client && yarn publish-server && yarn publish-storage-adapters"
     },
     "devDependencies": {
         "prettier": "^3.0.0",

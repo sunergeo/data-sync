@@ -7,7 +7,8 @@ const mockStorageAdapter: StorageAdapter = {
     getChangesSince: vi.fn(),
     applyRecords: vi.fn(),
     storeAttachment: vi.fn(),
-    fetchAttachment: vi.fn()
+    fetchAttachment: vi.fn(),
+    getAllRecords: vi.fn()
 }
 
 describe('SyncEngine', () => {

@@ -5,7 +5,8 @@
     "scripts": {
         "build": "tsc",
         "start:server": "ts-node src/server.ts",
-        "start:client": "ts-node src/client.ts"
+        "start:client": "ts-node src/client.ts",
+        "start:large-dataset": "ts-node src/large-dataset-sync.ts"
     },
     "dependencies": {
         "@sunergeo/data-sync-client": "workspace:*",

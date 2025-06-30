@@ -10,6 +10,12 @@ export {BaseAdapter} from './BaseAdapter'
 // Export the memory adapter
 export {MemoryAdapter} from './MemoryAdapter'
 
+// Export the versioned memory adapter
+export {VersionedMemoryAdapter} from './VersionedMemoryAdapter'
+
+// Export the change tracking adapter
+export {ChangeTrackingAdapter} from './ChangeTrackingAdapter'
+
 // Export the MySQL adapter
 export {MySQLAdapter, MySQLAdapterOptions} from './MySQLAdapter'
 
@@ -23,6 +29,14 @@ export {S3Adapter, S3AdapterOptions} from './S3Adapter'
  * // Memory adapter (for testing)
  * import { MemoryAdapter } from '@sunergeo/data-sync-storage-adapters';
  * const memoryAdapter = new MemoryAdapter();
+ * 
+ * // Versioned Memory adapter (with version vectors for better conflict resolution)
+ * import { VersionedMemoryAdapter } from '@sunergeo/data-sync-storage-adapters';
+ * const versionedAdapter = new VersionedMemoryAdapter();
+ * 
+ * // Change Tracking adapter (with separate change tracking table)
+ * import { ChangeTrackingAdapter } from '@sunergeo/data-sync-storage-adapters';
+ * const changeTrackingAdapter = new ChangeTrackingAdapter();
  *
  * // MySQL adapter
  * import { MySQLAdapter } from '@sunergeo/data-sync-storage-adapters';

@@ -161,7 +161,7 @@ Each package should include a `package.json` similar to:
     "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsup src/index.ts --format cjs,esm --dts",
-        "test": "vitest"
+        "test": "vitest run"
     },
     "files": ["dist"],
     "author": "Sunergeo",
